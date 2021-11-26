@@ -1,0 +1,174 @@
+<header style="display: block; width: 100%; height: 60px; background-color: white;">
+    <div class="header-content">
+        <div class="logo">
+            <img width="40" height="40" src="./assets/bths.png" alt="">
+
+            <a href="" style="margin-left:10px ;">
+                Bauan Technical Integrated High School
+                
+            </a>
+            
+        </div>
+
+        <div class="right">
+            <a href="">Help</a>
+        </div>
+    </div>
+</header>
+<div class="main-content">
+    <div class="login-container">
+        <div class="login-header">
+            <h2>Welcome to Portal</h2>
+        </div>
+       
+
+        <div class="login-form">
+            
+
+            <div class="buttons">
+                <div class="admin-login">
+                    <button id="admin" class="but admin" (click)="openAdminForm()">
+                        <p><i class="fas fa-user-shield" style="margin-right: 10px;"></i>Login as Admin</p>
+                        
+                    </button>
+                    <div  class="student-form" *ngIf="admin_login==true"  >
+                        <i class="fas fa-arrow-left" style="cursor:pointer;position: absolute; top: 0; left: 0; margin-left:20px;margin-top:20px;" (click)="back()"></i>
+
+                        <h3 style="text-align: center; margin-bottom: 10px;">Admin Login</h3>
+
+                        <div class="user-input" style="display: flex; flex-direction: column;">
+                            <input type="text" placeholder="Admin Code">
+
+                        </div>
+
+                        <div class="password-input" style="display: flex; flex-direction: column;">
+                            <div class="password-container" style="display: flex; align-items: center;">
+                                <input type="password" placeholder="Password" required="" id="id_password" style="width: 90%;">
+
+                                <div class="show-password" style="border-radius: 0px 5px 5px 0px;display: flex; align-items: center; justify-content: center; cursor: pointer; height: 100%; width: 10%; background-color:#ececec ;">
+                                    <i (click)="toggle()" class="far fa-eye" id="togglePassword" ></i>
+
+                                </div>
+                            </div>
+                            <small  style="color: rgb(92, 92, 92); margin-top: 5px;">* Password is case sensitive</small>
+                        </div>
+                        
+
+                        <button>Login</button>
+                        <div class="bottom">
+                            <div class="bottom-box">
+                                <a href="">Forgot Password?</a>
+
+                            </div>
+                            <div class="bottom-box">
+                                <a href="">Contact Us</a>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="faculty-login">
+                    <button id="faculty" class="but faculty" (click)="openFacultyForm()">
+                        <p><i class="fas fa-chalkboard-teacher" style="margin-right: 10px;"></i>Login as Faculty</p>
+                        
+                    </button>
+                    <div  class="student-form" *ngIf="faculty_login==true"  style="position: relative;">
+                        <i class="fas fa-arrow-left" style="cursor:pointer;position: absolute; top: 0; left: 0; margin-left:20px;margin-top:20px;" (click)="back()"></i>
+                        <h3 style="text-align: center; margin-bottom: 20px;">Faculty Login</h3>
+
+                        <div class="user-input" style="display: flex; flex-direction: column;">
+                            <input type="text" placeholder="User Code">
+
+                        </div>
+
+                        <div class="password-input" style="display: flex; flex-direction: column;">
+                            <div class="password-container" style="display: flex; align-items: center;">
+                                <input type="password" placeholder="Password" required="" id="id_password" style="width: 90%;">
+
+                                <div class="show-password" style="border-radius: 0px 5px 5px 0px;display: flex; align-items: center; justify-content: center; cursor: pointer; height: 100%; width: 10%; background-color:#ececec ;">
+                                    <i  (click)="toggle()" class="far fa-eye" id="togglePassword" ></i>
+
+                                </div>
+                            </div>
+                            <small  style="color: rgb(92, 92, 92); margin-top: 5px;">* Password is case sensitive</small>
+                        </div>
+
+                        <button>Login</button>
+
+                        <div class="bottom">
+                            <div class="bottom-box">
+                                <a href="">Forgot Password?</a>
+
+                            </div>
+                            <div class="bottom-box">
+                                <a href="">Contact Us</a>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="student-login">
+                    <button id="student" class="but student" (click)="openStudentForm()">
+                        <p><i class="fas fa-user-graduate" style="margin-right: 10px;"></i>Login as Student</p>
+                        
+                    </button>
+                    
+                    <div  class="student-form" *ngIf="student_login==true"  >
+                        <i class="fas fa-arrow-left" style="cursor:pointer;position: absolute; top: 0; left: 0; margin-left:20px;margin-top:20px;" (click)="back()"></i>
+
+                        <h3 style="text-align: center; margin-bottom: 10px;">Student Login</h3>
+                        <div class="user-input" style="display: flex; flex-direction: column;">
+                            <input type="text" placeholder="Student Code">
+
+                        </div>
+
+                        <div class="password-input" style="display: flex; flex-direction: column;">
+
+                            <div class="password-container" style="display: flex; align-items: center;">
+                                <input type="password" placeholder="Password" required="" id="id_password" style="width: 90%;">
+
+                                <div class="show-password" style="border-radius: 0px 5px 5px 0px;display: flex; align-items: center; justify-content: center; cursor: pointer; height: 100%; width: 10%; background-color:#ececec ;">
+                                    <i (click)="toggle()"  class="far fa-eye" id="togglePassword" ></i>
+
+                                </div>
+                            </div>
+                            
+                            <small  style="color: rgb(92, 92, 92); margin-top: 5px;">* Password is case sensitive</small>
+                        </div>
+                        
+
+
+                        <button>Login</button>
+
+                        <div class="bottom">
+                            <div class="bottom-box">
+                                <a href="">Forgot Password?</a>
+
+                            </div>
+                            <div class="bottom-box">
+                                <a href="">Contact Us</a>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                
+
+
+
+            </div>
+        </div>
+        
+    </div>
+
+    
+</div>
+<!-- <footer style="display: flex; justify-content: center; align-items: center; background: transparent;">
+    <small style="color: #494949;">Developed by Batangas State University @2021</small>
+</footer> -->

@@ -1,0 +1,173 @@
+<div class="class-info" >
+    <div class="d-flex flex-row">
+        <div class="col-md-3">
+            <div class="card card1 p-3">
+                <div class=" image d-flex flex-row align-items-center mt-3" style="align-items: center;justify-content: center;"> <span>Admin Dashboard</span> </div>
+                <hr class="hline">
+                <div class="d-flex flex-column align-items-center"> 
+                    <button class="btn " routerLink="/admin-dash"><span>Dashboard</span></button> 
+                    <button class="btn mt-3 " routerLink="/class-info"><span>Class Info</span></button> 
+                    <button class="btn mt-3 active" routerLink="/subjects"><span>Subjects</span></button> 
+                  
+                    <button class="btn mt-3 " routerLink="/students"><span>Students</span></button> 
+                    <button class="btn mt-3" routerLink="/teachers"><span>Teachers</span></button> 
+                    <button class="btn mt-3" routerLink="/settings"><span>Settings</span></button> 
+                    <button class="btn mt-3" routerLink="/users"><span>Users</span></button>  
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9" style="position:relative;">
+            <div class="card card2 p-3" >
+                <app-header></app-header>
+
+                <div class="hello d-flex justify-content-baseline align-items-center mt-3"> 
+                    <span style="text-transform:uppercase; font-size: 2rem; margin-bottom: 10px;">Subjects lists</span>
+                    
+
+                    
+                </div>
+               
+                <div class="pages">
+                    <a><i class="fas fa-tachometer-alt" style="margin-right: 8px;"></i>Dashboard  /  Subjects Lists</a>
+                </div>
+                <div class="" style="display: flex; gap: 6px;align-items: center; padding-bottom:20px ;padding-top :20px ;" >
+                   
+                    <input [(ngModel)]="search" type="text" class="form-control" placeholder="Search" style="width: 350px;">
+                        
+
+                    
+                    <button (click)="searchSubject()" type='submit' class="butt btn-success"><i class="fas fa-search" style="margin-right: 5px;"></i>Search</button>
+                    <button type='submit' class="butt btn-primary" data-bs-toggle="modal" data-bs-target="#addclass" (click)="reset()"><i class="fas fa-plus" style="margin-right: 5px;"></i>Add Subject</button>
+                    
+
+                    
+                    
+                </div>
+                
+                <div class="tables" style="overflow-y: scroll; overflow-x: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);" >
+                    <div class="tables" style="overflow-y: scroll; overflow-x: hidden; background-color: white;">
+                        <table class="table table-striped">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Subject Code</th>
+                                <th scope="col">Subject Title</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">Actions</th>
+                                
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let sub of subjects">
+                                
+                                <td scope="row">{{ sub.id }}</td>
+                                <td>{{ sub.code }}</td>
+                                <td>{{ sub.title }}</td>
+                                <td>{{ sub.unit }}</td>
+                                
+                                <td>
+                                    <a (click)="getSingleSubject(sub.id)" class="actions" data-bs-toggle="modal" data-bs-target="#updatesubject" data-toggle="tooltip" data-placement="bottom" title="Edit record">
+                                        <i class="far fa-edit text-primary" style="margin-right: 4px;"></i> 
+                                    </a>
+                                    <a  class="actions "  (click)="deleteSubject(sub.id)" data-toggle="tooltip" data-placement="bottom" title="Delete record">
+                                        <i class="far fa-times-circle text-danger"></i>
+                                    </a>
+                                </td>
+                              </tr>
+                              
+                              
+                              
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+            </div>
+            <app-footer></app-footer>
+        </div>
+    </div>
+</div>
+<!-- Modals -->
+
+
+<div class="modal fade" id="addclass" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Subject</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group" style="margin-bottom: 20px;">
+               
+                <input type="text" [(ngModel)]="subjectCode" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Subject Code">
+            </div>
+            <div class="form-group" style="margin-bottom: 20px;">
+               
+                <input type="text" [(ngModel)]="subjectTitle" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Subject Title">
+            </div>
+            <div class="form-group">
+                
+                <select [(ngModel)]="subjectType" class="form-select" aria-label="Default select example">
+                    <option selected>Subject Type</option>
+                    <option value="Core">Core</option>
+                    <option value="Applied">Applied</option>
+                    <option value="Specialized">Specialized</option>
+                  </select>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" (click)="addSubject()"  class="btn btn-primary">Add subject</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<!-- update modal -->
+<div class="modal fade" id="updatesubject" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Subject</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group" style="margin-bottom: 20px;">
+               
+                <input type="text" [(ngModel)]="subjectCode" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Subject Code">
+            </div>
+            <div class="form-group" style="margin-bottom: 20px;">
+               
+                <input type="text" [(ngModel)]="subjectTitle" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Subject Title">
+            </div>
+            <div class="form-group">
+                
+                <select [(ngModel)]="subjectType" class="form-select" aria-label="Default select example">
+                    <option selected>Subject Type</option>
+                    <option value="Core">Core</option>
+                    <option value="Applied">Applied</option>
+                    <option value="Specialized">Specialized</option>
+                  </select>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" (click)="updateSubject()"  class="btn btn-primary">Update subject</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- toast -->
+
+<app-added id="add_toast"></app-added>
+<app-toast1 id="delete_toast"></app-toast1>
+
+<app-update id="updatetoast"></app-update>

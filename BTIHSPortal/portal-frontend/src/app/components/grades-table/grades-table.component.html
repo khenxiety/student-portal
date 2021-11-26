@@ -1,0 +1,49 @@
+<div class="container bootstrap snippets bootdey" >
+    <div class="table-responsive">
+		<header style="width: 100%; display: flex; justify-content: right;  margin-bottom: 20px;">
+        
+			<button  class="btn btn-primary" (click)="openModal()">
+				<i class="fa fa-filter"></i>
+				Filter
+			</button>
+			
+		</header>
+    	
+    	<table class="table colored-header datatable project-list" >
+		
+    		<thead >
+    			<tr >
+    				<th>Subject</th>
+    				<th>Instructor</th>
+
+    				<th>Prelims</th>
+    				<th>Midterms</th>
+    				<th>Semis</th>
+    				<th>Finals</th>
+    				<th>Status</th>
+    			</tr>
+    		</thead>
+    		<tbody>
+    			<tr *ngFor="let grades of subjects">
+    				<td><a href="#">{{grades.subject}}</a></td>
+    				<td><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Avatar" class="avatar img-circle" style="margin-right: 5px;"> <a href="#">{{grades.fname}} {{grades.lname}}</a></td>
+
+    				<td>{{grades.att1}}</td>
+    				<td>{{grades.att2}}</td>
+    				<td>{{grades.att2}}</td>
+    				<td>{{grades.att3}}</td>
+
+
+    				<!-- <td>
+    					<div class="progress">
+    						<div class="progress-bar" data-transitiongoal="grades.grade" aria-valuenow="grades.grade" style="width: 20%;">{{grades.grade}}%</div>
+    					</div>
+    				</td> -->
+    				<!-- <td><span class="label label-warning">MEDIUM</span></td>     -->
+    				<td><span class="label label-success">Pass</span></td>
+    			</tr>
+    			
+    		</tbody>
+    	</table>
+    </div>
+</div>

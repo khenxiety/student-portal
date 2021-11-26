@@ -1,0 +1,28 @@
+.navbar{
+    background-color: rgb(59, 59, 59);
+    
+}
+
+
+.jumbotron{
+    background-color: rgb(211, 211, 211);
+    color: rgb(32, 32, 32);
+    padding: 2rem;
+    h1{
+        font-size: 3rem;
+        font-weight: bold;
+    }
+}
+.left{
+    position: relative;
+}
+.alert{
+    display: flex;
+    align-items: center;
+}
+#alert_success{
+    display: none;
+}
+#alert_failed{
+    display: none;
+}

@@ -1,0 +1,228 @@
+<div class="faculty-dash-container">
+    <div class="sidebar">
+        <div class="sidebar-header" style="display: flex; flex-direction: column; align-items: center;">
+            <div class="sidebar-header-logo">
+                <img src="/assets/bths.png" height="50px" width="50px" alt="">
+            </div>
+            <div class="sidebar-header-name">
+                <h3 style="font-weight: 900; color: rgb(243, 243, 243);">Faculty Dashboard</h3>
+            </div>
+        </div>
+        <div class="sidebar-body" >
+            <div class="sidebar-body-nav">
+                <ul style="display: flex; flex-direction: column; gap: 20px; ">
+                    <li  routerLink="/faculty-dash">
+                        <a >
+                            <i class="fas fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="active" routerLink="/faculty-students">
+                        <a >
+                            <i class="fas fa-user"></i>
+                            <span>My Students</span>
+                        </a>
+                    </li>
+                    <li  routerLink="/faculty-classes">
+                        <a >
+                            <i class="fas fa-book"></i>
+                            <span>My Classes</span>
+                        </a>
+                    </li>
+                    <li routerLink="/faculty-settings">
+                        <a >
+                            <i class="fas fa-file-alt"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+
+                            
+
+    </div>
+    <div class="main-content">
+        <app-faculty-header></app-faculty-header>
+        <div class="cont">
+            <header>
+                <div class="header-text">
+                    <h1>My Students</h1>
+                    
+                </div>
+            </header>
+            <div class="pages">
+                <a><i class="fas fa-tachometer-alt" style="margin-right: 8px;"></i>Dashboard / Students </a>
+            </div>
+
+            <!-- <div class="search-panel">
+                
+                <div class="search-panel-body">
+                    <div class="search-panel-body-input">
+                        <input type="text" placeholder="Search by name, id, email, etc.">
+                    </div>
+                    <div class="search-panel-body-button">
+                        <button>Search</button>
+                    </div>
+                </div>
+            </div> -->
+            <div class="" style="display: flex;justify-content: space-between; width: 100%; align-items: center; padding-bottom:20px ;padding-top :20px ;" >
+                <div class="left" style="display: flex; gap: 6px;align-items: center;">
+                    <input type="text" [(ngModel)]="searchData" class="form-control" placeholder="Search" style="width: 350px;">
+                    
+
+                
+                    <button (click)="search()"  type='submit' class="butt btn-success"><i class="fas fa-search" style="margin-right: 5px;"></i>Search</button>
+
+                </div>
+                <div class="filter">
+                    <a href="" data-bs-toggle="modal" data-bs-target="#filter"><i class="fas fa-filter" style="margin-right: 5px;"></i>Filter</a>
+                </div>
+                <!-- Modal for filter -->
+                <div class="modal fade" id="filter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog ">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Filter</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" >
+                            <select [(ngModel)]="filterdata" class="form-select" aria-label="Default select example">
+                                <option selected>Filter by Subject</option>
+                                <option style="text-transform: capitalize;">all</option>
+
+                                <option *ngFor="let subjects of filteredData" >{{subjects.subject}}</option>
+                                
+                              </select>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="button" (click)="filter()" data-bs-dismiss="modal" class="btn btn-primary">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                   
+                
+                
+                
+            </div>
+            <div class="tables" style="overflow-y: scroll; overflow-x: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Student ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Class Name</th>
+                        <th scope="col">Subject </th>
+
+                        <th scope="col">Prelims</th>
+
+                        <th scope="col">Midterm</th>
+                        <th scope="col">Semis</th>
+                        <th scope="col">Finals</th>
+
+                        <th scope="col">Actions</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let students of students">
+                  
+                        <td scope="row">{{students.id}}</td>
+                        <td>{{students.studid}}</td>
+                        <td>{{students.fname}} {{students.lname}}</td>
+                        <td>{{students.course}} {{students.year}} {{students.section}}</td>
+                        <td>{{students.subject}}</td>
+
+                        <td>{{students.att1}}</td>
+
+                        <td>{{students.att2}}</td>
+                        <td>{{students.att3}}</td>
+
+                        <td>{{students.att4}}</td>
+
+
+                        
+                        <td><a (click)="getSingleStudent(students.ids)" data-bs-toggle="modal" data-bs-target="#grades_modal" class="actions" data-toggle="tooltip" data-placement="bottom" title="Add grades"><i class="far fa-edit text-primary" style="margin-right: 4px;"></i> </a>
+                        </td>
+                      </tr>
+                      
+                      
+                      
+                    </tbody>
+                  </table>
+            </div>
+            
+            
+
+        </div>
+
+        
+
+
+        <app-footer></app-footer>
+        
+
+    </div>
+    
+            
+
+
+</div>
+
+
+<!-- add grades modal -->
+<div  class="modal fade" id="grades_modal" tabindex="-1"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" *ngFor="let grades of singleStudent">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Submit Grades</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+          
+        
+      </div>
+      <div class="modal-body" >
+        <div class="alert alert-primary" role="alert">
+            <h4 class="alert-heading"><b>{{grades.fname}} {{grades.lname}}</b></h4>
+            <p>{{grades.course}} {{grades.year}} {{grades.section}}</p>
+            <p>{{grades.subject}}</p>
+          </div>
+        
+            
+            <div class="form-group">
+                <label for="exampleInputEmail1">Prelims</label>
+                <input [(ngModel)]="prelims" maxlength="3" type="number" class="form-control" id="exampleInputEmail1"  aria-describedby="emailHelp" placeholder="Enter Prelims">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Midterm</label>
+                <input [(ngModel)]="midterm" maxlength="3" type="number" class="form-control" id="exampleInputEmail1"  aria-describedby="emailHelp" placeholder="Enter Midterm">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Semis</label>
+                <input [(ngModel)]="semis" maxlength="3" type="number" class="form-control" id="exampleInputEmail1"  aria-describedby ="emailHelp" placeholder="Enter Semis">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Finals</label>
+                <input [(ngModel)]="finals"  type="number" max="3" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Finals">
+            </div>
+        
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+            <button type="button" (click)="updateGrades(grades.ids)" class="btn btn-primary">Submit Grades</button>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+
+<!-- toast -->
+<app-update id="update"></app-update>
+
+

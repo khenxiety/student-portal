@@ -1,0 +1,18 @@
+<header>
+    <div class="header-container">
+        <div class="logo">
+            
+        </div>
+        <div class="header-container-name" style="float: right;">
+            <div class="dropdown" >
+                <button  class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background: none; color: white; text-transform: capitalize; border: none;">
+                  {{name}}
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" href="#">Edit Profile</a></li>
+                  <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>

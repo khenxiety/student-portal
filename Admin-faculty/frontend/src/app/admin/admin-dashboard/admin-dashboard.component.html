@@ -1,0 +1,77 @@
+
+
+<div>
+    <div class="d-flex flex-row">
+        <div class="col-md-3">
+            <div class="card card1 p-3">
+                <div class=" image d-flex flex-row align-items-center mt-3" style="align-items: center;justify-content: center;"> <span>Admin Dashboard</span> </div>
+                <hr class="hline">
+                <div class="d-flex flex-column align-items-center"> 
+                    <button class="btn active" routerLink="/admin-dash"><span>Dashboard</span></button> 
+                    <button class="btn mt-3" routerLink="/class-info"><span>Class Info</span></button> 
+                    <button class="btn mt-3" routerLink="/subjects"><span>Subjects</span></button> 
+                  
+                    <button class="btn mt-3" routerLink="/students"><span>Students</span></button> 
+                    <button class="btn mt-3" routerLink="/teachers"><span>Teachers</span></button> 
+                    <button class="btn mt-3" routerLink="/settings"><span>Settings</span></button> 
+                    <button class="btn mt-3" routerLink="/users"><span>Users</span></button>  
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9" style="position: relative;">
+            
+            <div class="card card2 p-3" >
+                <app-header></app-header>
+                <!-- <div class="hello d-flex justify-content-end align-items-center mt-3"> 
+                    <span>Welcome back, Admin</span>
+
+                    
+                </div> -->
+                <div class="hello d-flex justify-content-baseline align-items-center mt-3"> 
+                    <span style="text-transform:uppercase; font-size: 2rem; margin-bottom: 10px;">Welcome back, Admin</span>
+                    
+
+                    
+                </div>
+
+                <div class="pages">
+                    <a><i class="fas fa-tachometer-alt" style="margin-right: 8px;"></i>Dashboard</a>
+                </div>
+                <div class="d-flex flex-row " style=" justify-content: space-between;" >
+                    <div class="card cardchild mt-3 p-2 px-3 py-3 cardss" style="width: 300px;" routerLink="/subjects" data-toggle="tooltip" data-placement="bottom" title="View subject records">
+                        <div class="d-flex p-2 mt-2 justify-content-between rounded">
+                            <div class="d-flex flex-column" ><span class="type">Subjects</span><span class="number">{{ subjectsLength.length }}</span></div>
+                            <div class="d-flex flex-column"><i class="fas fa-chart-bar logo2" style="font-size:2.2rem;"></i><span class="percentage">45%</span></div>
+                        </div>
+                    </div>
+                    <div class="card cardchild mt-3 p-2 px-3 py-3 cardss" style="width: 300px;" routerLink="/teachers" data-toggle="tooltip" data-placement="bottom" title="View teachers records">
+                        <div class="d-flex p-2 mt-2 justify-content-between rounded" >
+                            <div class="d-flex flex-column"><span class="type">Teachers</span><span class="number">{{ teachersLength.length }}</span></div>
+                            <div class="d-flex flex-column"><i class="fas fa-chalkboard-teacher logo2" style="font-size:2.2rem;"></i><span class="percentage2">25%</span></div>
+                           
+                        </div>
+                        
+                    </div>
+                    <div class="card cardchild mt-3 p-2 px-3 py-3 cardss" style="width: 300px;" routerLink="/students" data-toggle="tooltip" data-placement="bottom" title="View students records">
+                        <div class="d-flex p-2 mt-2 justify-content-between rounded">
+                            <div class="d-flex flex-column"><span class="type">Students</span><span class="number">{{ studentsLength.length }}</span></div>
+                            <div class="d-flex flex-column"><i class="fas fa-user-graduate logo2" style="font-size:2.2rem;"></i><span class="percentage3">17%</span></div>
+                        </div>
+                    </div>
+                    <div class="card cardchild mt-3 p-2 px-3 py-3 cardss" style="width: 300px;" routerLink="/users" data-toggle="tooltip" data-placement="bottom" title="View users records">
+                        <div class="d-flex p-2 mt-2 justify-content-between rounded">
+                            <div class="d-flex flex-column"><span class="type">Users</span><span class="number">{{ usersLength.length }}</span></div>
+                            <div class="d-flex flex-column"><i class="fas fa-users logo2" style="font-size:2.2rem;"></i><span class="percentage4">13%</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center mt-5 gap-2 p-3">
+                    
+                </div>
+            </div>
+            <app-footer></app-footer>
+        </div>
+    </div>
+
+</div>

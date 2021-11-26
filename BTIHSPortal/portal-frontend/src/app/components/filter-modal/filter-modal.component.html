@@ -1,0 +1,119 @@
+<!-- <div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="">Grade Level</label>
+            <select class="form-control" id="">
+                <option>Grade 1</option>
+                <option>Grade 2</option>
+                <option>Grade 3</option>
+                <option>Grade 4</option>
+                <option>Grade 5</option>
+                <option>Grade 6</option>
+                <option>Grade 7</option>
+                <option>Grade 8</option>
+                <option>Grade 9</option>
+                <option>Grade 10</option>
+                <option>Grade 11</option>
+                <option>Grade 12</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="">Subject</label>
+            <select class="form-control" id="">
+                <option>Math</option>
+                <option>English</option>
+                <option>Filipino</option>
+                <option>Science</option>
+                <option>MAPEH</option>
+                <option>TLE</option>
+                <option>Edukasyon.</option>
+                <option>Arts</option>
+                <option>PE</option>
+                <option>Health</option>
+                <option>Music</option>
+                <option>Computer</option>
+                <option>Values</option>
+                <option>Makabayan</option>
+                <option>Edukasyong Pantay</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="">Section</label>
+            <select class="form-control" id="">
+                <option>Section 1</option>
+                <option>Section 2</option>
+                <option>Section 3</option>
+                <option>Section 4</option>
+                <option>Section 5</option>
+                <option>Section 6</option>
+                <option>Section 7</option>
+                <option>Section 8</option>
+                <option>Section 9</option>
+                <option>Section 10</option>
+                <option>Section 11</option>
+                <option>Section 12</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="">Teacher</label>
+            <select class="form-control" id="">
+                <option>Teacher 1</option>
+                <option>Teacher 2</option>
+                <option>Teacher 3</option>
+                <option>Teacher 4</option>
+                <option>Teacher 5</option>
+                <option>Teacher 6</option>
+                <option>Teacher 7</option>
+                <option>Teacher 8</option>
+                <option>Teacher 9</option>
+                <option>Teacher 10</option>
+                <option>Teacher 11</option>
+                <option>Teacher 12</option>
+            </select>
+        </div>
+    </div>
+</div> -->
+<mat-dialog-content>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="">Grade Level</label>
+                <select [(ngModel)]="level" class="form-control" id="">
+                    <option selected style="text-transform: capitalize;">all</option>
+
+                    <option>11</option>
+                    <option>12</option>
+                    
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="">School Year</label>
+                <select [(ngModel)]="schoolyear" class="form-control" id="">
+                    <option selected style="text-transform: capitalize;">all</option>
+                    <option>2021-2022</option>
+                    <option>2022-2023</option>
+                    
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <!-- <button mat-raised-button  [mat-dialog-close]="sample"  style="background-color: #0275d8; color: white;">Filter</button> -->
+    
+
+
+</mat-dialog-content>
+
+<mat-dialog-actions style="display: flex; justify-content: right;">
+    <button mat-raised-button  [mat-dialog-close]="schoolyear"  style="background-color: #0275d8; color: white;">Filter</button>
+</mat-dialog-actions>

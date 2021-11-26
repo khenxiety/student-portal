@@ -1,0 +1,179 @@
+.header-content{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+
+
+    .logo{
+        height: 100%;
+        width: max-content;
+        display: flex;
+        align-items: center;
+
+        a{
+            color: #1E2329;
+            font-size: 18px;
+            text-transform: uppercase;
+            font-weight: 900;
+            color: rgb(155, 38, 38);
+        }
+        
+    }
+}
+
+.main-content{
+    width: 100%;
+    height: 100vh;
+    
+    // background-color: #ebebeb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .login-container{
+        border:.2px solid #c4c4c486 ;
+        width: 800px;
+        height: 100%;
+        background-color: #fff;
+        overflow: hidden;
+        // -webkit-box-shadow: 0 20px 10px 10px rgba(128, 128, 128, 0.712);
+        // box-shadow: 0 20px 10px 10px rgba(128, 128, 128, 0.712);
+
+
+        .login-header{
+            width: 100%;
+            padding: 20px;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom:.2px solid #c4c4c486 ;
+            // margin-bottom: 100px;
+
+        }
+
+        .login-form{
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            padding-top: 50px;
+            .buttons{
+                
+                .but{
+                    width: 400px;
+                    height: 50px;
+                    border: 1px solid #b83838;
+                    
+                    border-radius: 5px;
+                    margin-top: 20px;
+                    background: transparent;
+                    font-size: 1.1rem;
+                    cursor: pointer;
+                }
+                .but:hover{
+                    background-color:#b8383862 ;
+                }
+
+
+
+                .student-form{
+                    
+                    margin-top: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    height: 400px;
+                    padding: 20px;
+                    padding-top: 40px;
+                    border:.2px solid #c4c4c486 ;
+                    // background-color: #f5f5f5;
+                    border-radius: 5px;
+                    animation: fade .5s ease forwards;
+                    
+                    
+                    
+
+
+
+                    input{
+                        
+                        // margin-bottom: 20px;
+                        background-color: #ececec;
+                        height:40px ;
+                        border: none;
+                        border-radius: 5px 0px 0px 5px;
+                        padding-left: 15px;
+                        font-size: 17px;
+
+                    }
+
+                    button{
+                        // margin-top: 20px;
+                        height:40px ;
+                        background-color: #b83838;
+                        border: none;
+                        cursor: pointer;
+                        border-radius: 5px;
+                        color: white;
+                        text-transform: uppercase;
+                        font-weight: bold;
+
+                    }
+
+                    .bottom{
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+
+
+                        .bottom-box{
+                            height: max-content;
+                            width: max-content;
+                            background-color: #f5f5f5;
+                            padding: 8px;
+                            border-radius: 5px;
+
+                            a{
+                                color: #40a039;
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            
+        }
+    }
+
+
+}
+.fa-eye{
+    color: rgb(87, 87, 87);
+}
+
+.show-password{
+    border-left:1px solid rgb(173, 173, 173);
+}
+
+// keyframes
+
+@keyframes fade {
+    from{
+        opacity: 0;
+        transform: translateY(-2rem);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0rem);
+
+    }
+    
+}

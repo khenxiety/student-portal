@@ -1,0 +1,104 @@
+<div class="faculty-dash-container">
+    <div class="sidebar">
+        <div class="sidebar-header" style="display: flex; flex-direction: column; align-items: center;">
+            <div class="sidebar-header-logo">
+                <img src="/assets/bths.png" height="50px" width="50px" alt="">
+            </div>
+            <div class="sidebar-header-name">
+                <h3 style="font-weight: 900; color: rgb(243, 243, 243);">Faculty Dashboard</h3>
+            </div>
+        </div>
+        <div class="sidebar-body" >
+            <div class="sidebar-body-nav">
+                <ul style="display: flex; flex-direction: column; gap: 20px; ">
+                    <li class="active" routerLink="/faculty-dash">
+                        <a >
+                            <i class="fas fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li routerLink="/faculty-students">
+                        <a >
+                            <i class="fas fa-user"></i>
+                            <span>My Students</span>
+                        </a>
+                    </li>
+                    <li routerLink="/faculty-classes">
+                        <a >
+                            <i class="fas fa-book"></i>
+                            <span>My Classes</span>
+                        </a>
+                    </li>
+                    <li routerLink="/faculty-settings">
+                        <a >
+                            <i class="fas fa-file-alt"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+
+                            
+
+    </div>
+    <div class="main-content">
+        <app-faculty-header></app-faculty-header>
+        <div class="cont">
+            <header>
+                <div class="header-text">
+                    <h1>Welcome to your dashboard, {{ name }}</h1>
+                    <p>Here you can manage your courses, assignments, students and notifications</p>
+                </div>
+            </header>
+            <div class="pages">
+                <a><i class="fas fa-tachometer-alt" style="margin-right: 8px;"></i>Dashboard </a>
+            </div>
+            <div class="info-cards" style="margin-top:20px;display: flex; justify-content: space-evenly; width: 100%;">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Students</h3>
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="card-body">
+                        
+                        <p>Total Students</p>
+                        <h1>{{ studentsList.length }}</h1>
+                    </div>
+                    <div class="card-footer">
+                        <a href="">Manage Students >></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Classes</h3>
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="card-body">
+                        
+                        <p>Total Classes</p>
+                        <h1>{{ classes.length }}</h1>
+                    </div>
+                    <div class="card-footer">
+                        <a href="">Manage Classes >></a>
+                    </div>
+                </div>
+
+            </div>
+            
+
+        </div>
+
+        
+
+
+        <app-footer></app-footer>
+        
+
+    </div>
+    
+            
+
+
+</div>

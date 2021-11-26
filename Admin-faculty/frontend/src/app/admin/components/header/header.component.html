@@ -1,0 +1,12 @@
+<div class="head">
+    <a style="font-size: 1.3rem;"></a>
+    <div class="dropdown">
+        <button  class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background: none; color: black; text-transform: capitalize; border: none;">
+          {{user}}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#">Edit Profile</a></li>
+          <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+        </ul>
+    </div>
+</div>

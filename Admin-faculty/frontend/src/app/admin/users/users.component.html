@@ -1,0 +1,144 @@
+<div class="class-info" >
+    <div class="d-flex flex-row">
+        <div class="col-md-3">
+            <div class="card card1 p-3">
+                <div class=" image d-flex flex-row align-items-center mt-3" style="align-items: center;justify-content: center;"> <span>Admin Dashboard</span> </div>
+                <hr class="hline">
+                <div class="d-flex flex-column align-items-center"> 
+                    <button class="btn " routerLink="/admin-dash"><span>Dashboard</span></button> 
+                    <button class="btn mt-3 " routerLink="/class-info"><span>Class Info</span></button> 
+                    <button class="btn mt-3" routerLink="/subjects"><span>Subjects</span></button> 
+                  
+                    <button class="btn mt-3 " routerLink="/students"><span>Students</span></button> 
+                    <button class="btn mt-3 " routerLink="/teachers"><span>Teachers</span></button> 
+                    <button class="btn mt-3" routerLink="/settings"><span>Settings</span></button>
+                    <button class="btn mt-3 active" routerLink="/users"><span>Users</span></button>  
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9" style="position:relative;">
+            <div class="card card2 p-3" >
+                <app-header></app-header>
+
+                <div class="hello d-flex justify-content-baseline align-items-center mt-3"> 
+                    <span style="text-transform:uppercase; font-size: 2rem; margin-bottom: 10px;">Users lists</span>
+                    
+
+                    
+                </div>
+               
+                <div class="pages">
+                    <a><i class="fas fa-tachometer-alt" style="margin-right: 8px;"></i>Dashboard  /  Users List</a>
+                </div>
+                <div class="" style="display: flex; gap: 6px;align-items: center; padding-bottom:20px ;padding-top :20px ;" >
+                   
+                    <input type="text" [(ngModel)]="search_user" class="form-control" placeholder="Search user..." style="width: 350px;">
+                        
+
+                    
+                    <button data-toggle="tooltip" data-placement="bottom" title="Search in records" type='button' class="butt btn-success" (click)="searchUser()"><i class="fas fa-search" style="margin-right: 5px;" ></i>Search</button>
+                    <button data-toggle="tooltip" data-placement="bottom" title="Add new record to user" type='submit' class="butt btn-primary"><i class="fas fa-plus" style="margin-right: 5px;"></i>Add User</button>
+                    
+                </div>
+                
+                
+                <div class="tables" style="overflow-y: scroll; overflow-x: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); ">
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">Username</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Level</th>
+                            <th scope="col">Password</th>
+                            <th scope="col">Remove</th>
+                            
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let users of users" >
+                      
+                            <td scope="row">{{ users.username }}</td>
+                            <td>{{ users.fname }} {{ users.lname }}</td>
+                            <td style="text-transform: capitalize;">{{ users.level }}</td>
+                            <td><a class="text-primary" style="cursor: pointer;" (click)="getUserPassword(users.id)" data-bs-toggle="modal"
+                                data-bs-target="#user">Update</a></td>
+                            
+                            <td><a href="" class="actions" data-toggle="tooltip" data-placement="bottom" title="Edit record"><i class="far fa-edit text-primary" style="margin-right: 4px;"></i> </a>
+                              <a (click)="deleteUser(users.id)" class="actions " data-toggle="tooltip" data-placement="bottom" title="Delete record"><i class="far fa-times-circle text-danger"></i></a></td>
+                          </tr>
+                          
+                          
+                          
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+            <app-footer></app-footer>
+        </div>
+    </div>
+</div>
+<div
+  class="modal fade"
+  id="user"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update User Password</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        
+        <div class="form-group" style="margin-bottom: 20px;">
+            <label for="exampleInputEmail1">New Password</label>
+            <input
+                type="password"
+                class="form-control"
+                [(ngModel)]="new_password"
+                id="pass"
+                placeholder="Enter New Password"
+            />
+        </div>
+        <div class="form-group" style="margin-bottom: 20px;">
+            <label for="exampleInputEmail1">Confirm Password</label>
+            <input
+                type="password"
+                class="form-control"
+                
+                [(ngModel)]="confirmPassword"
+                placeholder="Confirm Password"
+            />
+        </div>
+        
+        <div class="form-group" style="margin-bottom: 20px;">
+            <button type="button" class="btn btn-success"(click)="updateUserPassword()" >Update</button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- toasts -->
+<app-update id="update_toast"></app-update>
+<app-toast1 id="delete_toast"></app-toast1>
